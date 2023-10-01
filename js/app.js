@@ -3498,13 +3498,13 @@
             autoHeight: true,
             speed: 800,
             grabCursor: true,
+            touchRatio: 2,
             navigation: {
                 prevEl: ".swiper-button-prev",
                 nextEl: ".swiper-button-next"
             },
             breakpoints: {
                 640: {
-                    spaceBetween: 0,
                     slidesPerView: 1
                 },
                 768: {
