@@ -9,19 +9,13 @@
   }
 
   document.addEventListener('click', (event) => {
-    const isMenuOpen = root.classList.contains('menu-open');
-    if (!isMenuOpen) return;
+    if (!root.classList.contains('menu-open')) return;
 
-    const clickedMenu = event.target.closest('.menu__body');
-    const clickedBurger = event.target.closest('.icon-menu');
-    const clickedHeaderButton = event.target.closest('.header__actions');
+    const isBurger = event.target.closest('.icon-menu');
+    const isMenu = event.target.closest('.menu__body');
+    const isMenuLink = event.target.closest('.menu__link');
 
-    if (!clickedMenu && !clickedBurger && !clickedHeaderButton) {
-      closeMenu();
-      return;
-    }
-
-    if (event.target.closest('.menu__link')) {
+    if (isMenuLink || (!isBurger && !isMenu)) {
       closeMenu();
     }
   });
