@@ -47,3 +47,4 @@
     elements.forEach((el) => observer.observe(el));
   });
 })();
+
