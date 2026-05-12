@@ -115,24 +115,37 @@
 						</div>
 
 						<ul class="menu__list">
-							<li data-goto-header data-goto=".page__intro" class="menu__item">
-								<img class="menu__item-arrow" src="img/svg/button-arrow.svg" alt="menu arrow" / loading="lazy" decoding="async">
-								<a href="#" class="menu__link"> </a>О городе
-							</li>
-							<li data-goto-header data-goto=".page__tabs" class="menu__item">
-								<img class="menu__item-arrow" src="img/svg/button-arrow.svg" alt="menu arrow" / loading="lazy" decoding="async">
-								<a href="#" class="menu__link"></a>Преимущества
-							</li>
-							<li data-goto-header data-goto=".page__city" class="menu__item">
-								<img class="menu__item-arrow" src="img/svg/button-arrow.svg" alt="menu arrow" / loading="lazy" decoding="async"><a href="#" class="menu__link"></a>Еще преимущества
-							</li>
-							<li data-goto-header data-goto=".page__apartments" class="menu__item">
-								<img class="menu__item-arrow" src="img/svg/button-arrow.svg" alt="menu arrow" / loading="lazy" decoding="async"><a href="#" class="menu__link"></a>О квартирах
-							</li>
-							<li data-goto-header data-goto=".page__contacts" class="menu__item">
-								<img class="menu__item-arrow" src="img/svg/button-arrow.svg" alt="menu arrow" / loading="lazy" decoding="async"><a href="#" class="menu__link"></a>Контакты
-							</li>
-						</ul>
+                                                        <li data-goto-header data-goto=".page__intro" class="menu__item">
+                                                                <a href="#" class="menu__link">
+                                                                        <img class="menu__item-arrow" src="img/svg/button-arrow.svg" alt="" loading="lazy" decoding="async">
+                                                                        <span>О городе</span>
+                                                                </a>
+                                                        </li>
+                                                        <li data-goto-header data-goto=".page__tabs" class="menu__item">
+                                                                <a href="#" class="menu__link">
+                                                                        <img class="menu__item-arrow" src="img/svg/button-arrow.svg" alt="" loading="lazy" decoding="async">
+                                                                        <span>Преимущества</span>
+                                                                </a>
+                                                        </li>
+                                                        <li data-goto-header data-goto=".page__city" class="menu__item">
+                                                                <a href="#" class="menu__link">
+                                                                        <img class="menu__item-arrow" src="img/svg/button-arrow.svg" alt="" loading="lazy" decoding="async">
+                                                                        <span>Еще преимущества</span>
+                                                                </a>
+                                                        </li>
+                                                        <li data-goto-header data-goto=".page__apartments" class="menu__item">
+                                                                <a href="#" class="menu__link">
+                                                                        <img class="menu__item-arrow" src="img/svg/button-arrow.svg" alt="" loading="lazy" decoding="async">
+                                                                        <span>О квартирах</span>
+                                                                </a>
+                                                        </li>
+                                                        <li data-goto-header data-goto=".page__contacts" class="menu__item">
+                                                                <a href="#" class="menu__link">
+                                                                        <img class="menu__item-arrow" src="img/svg/button-arrow.svg" alt="" loading="lazy" decoding="async">
+                                                                        <span>Контакты</span>
+                                                                </a>
+                                                        </li>
+                                                </ul>
 
 						<div class="menu__contact">
 							<div class="menu__contact-phone">
@@ -287,9 +300,7 @@
 								</p>
 							</div>
 
-							<div data-goto-header data-goto=".page__apartments" class="city__description-button button button__transp-black">
-								<a href="#" class="Выбрать панельку"> Выбрать панельку</a>
-							</div>
+							<a data-goto-header data-goto=".page__apartments" href="#" class="city__description-button button button__transp-black">Выбрать панельку</a>
 
 							<div data-prlx-parent class="city__description-image image-block">
 								<div data-prlx class="image-block__item -ibg">
@@ -347,149 +358,53 @@
 				</div>
 			</section>
 
-			<section class="page__apartments">
-				<div class="apartments">
-					<div class="apartments__title title white">
-						<h2>Свободные квартиры</h2>
-					</div>
+			<section class="page__apartments apartments-clean">
+                                <div class="apartments-clean__container">
+                                        <div class="apartments__title title white">
+                                                <h2>Свободные квартиры</h2>
+                                        </div>
 
-					<div class="apartments__slider swiper __container">
-						<div class="apartments__wrapper slider-apartments__body swiper-wrapper">
-							<!-- Слайд -->
+                                        <div class="apartments-clean__grid">
+                                                <article data-popup="#popup" class="apartments-clean__card">
+                                                        <div class="apartments-clean__image">
+                                                                <picture><source srcset="img/slider/1.webp" type="image/webp"><img src="img/slider/1.png" alt="Квартира №307" loading="lazy" decoding="async"></picture>
+                                                                <span class="apartments-clean__number">№307</span>
+                                                                <span class="apartments-clean__square">46 м²</span>
+                                                        </div>
+                                                        <div class="apartments-clean__info">
+                                                                <h4>179 400 ₽/мес</h4>
+                                                                <p>2 этаж</p>
+                                                        </div>
+                                                </article>
 
-							<div data-popup="#popup" class="apartments__slide swiper-slide slide-apartment">
-								<div class="slide-apartment__content">
-									<div class="slide-apartment__image apartment-image">
-										<div class="apartment-image__item -ibg">
-											<picture><source srcset="img/slider/1.webp" type="image/webp"><img src="img/slider/1.png" alt="slider image" / loading="lazy" decoding="async"></picture>
-										</div>
-										<div class="apartment-image__number">
-											<p>№307</p>
-										</div>
-										<div class="apartment-image__square">
-											<p>46 м²</p>
-										</div>
-									</div>
+                                                <article data-popup="#popup" class="apartments-clean__card">
+                                                        <div class="apartments-clean__image">
+                                                                <picture><source srcset="img/slider/2.webp" type="image/webp"><img src="img/slider/2.png" alt="Квартира №308" loading="lazy" decoding="async"></picture>
+                                                                <span class="apartments-clean__number">№308</span>
+                                                                <span class="apartments-clean__square">105 м²</span>
+                                                        </div>
+                                                        <div class="apartments-clean__info">
+                                                                <h4>80 400 ₽/мес</h4>
+                                                                <p>2 этаж</p>
+                                                        </div>
+                                                </article>
 
-									<div class="slide-apartments__description description-apartment">
-										<div class="description-apartment__title">
-											<h4>179 400 ₽/мес</h4>
-										</div>
-										<div class="description-apartment__suptitle">
-											<p>2 этаж</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- Слайд -->
-							<div data-popup="#popup" class="apartments__slide swiper-slide slide-apartment">
-								<div class="slide-apartment__content">
-									<div class="slide-apartment__image apartment-image">
-										<div class="apartment-image__item -ibg">
-											<picture><source srcset="img/slider/2.webp" type="image/webp"><img src="img/slider/2.png" alt="slider image" / loading="lazy" decoding="async"></picture>
-										</div>
-										<div class="apartment-image__number">
-											<p>№308</p>
-										</div>
-										<div class="apartment-image__square">
-											<p>105 м²</p>
-										</div>
-									</div>
+                                                <article data-popup="#popup" class="apartments-clean__card">
+                                                        <div class="apartments-clean__image">
+                                                                <picture><source srcset="img/slider/3.webp" type="image/webp"><img src="img/slider/3.png" alt="Квартира №309" loading="lazy" decoding="async"></picture>
+                                                                <span class="apartments-clean__number">№309</span>
+                                                                <span class="apartments-clean__square">89 м²</span>
+                                                        </div>
+                                                        <div class="apartments-clean__info">
+                                                                <h4>65 400 ₽/мес</h4>
+                                                                <p>3 этаж</p>
+                                                        </div>
+                                                </article>
+                                        </div>
+                                </div>
+                        </section>
 
-									<div class="slide-apartments__description description-apartment">
-										<div class="description-apartment__title">
-											<h4>80 400 ₽/мес</h4>
-										</div>
-										<div class="description-apartment__suptitle">
-											<p>2 этаж</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- Слайд -->
-							<div data-popup="#popup" class="apartments__slide swiper-slide slide-apartment">
-								<div class="slide-apartment__content">
-									<div class="slide-apartment__image apartment-image">
-										<div class="apartment-image__item -ibg">
-											<picture><source srcset="img/slider/3.webp" type="image/webp"><img src="img/slider/3.png" alt="slider image" / loading="lazy" decoding="async"></picture>
-										</div>
-										<div class="apartment-image__number">
-											<p>№309</p>
-										</div>
-										<div class="apartment-image__square">
-											<p>89 м²</p>
-										</div>
-									</div>
-
-									<div class="slide-apartments__description description-apartment">
-										<div class="description-apartment__title">
-											<h4>65 400 ₽/мес</h4>
-										</div>
-										<div class="description-apartment__suptitle">
-											<p>3 этаж</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div data-popup="#popup" class="apartments__slide swiper-slide slide-apartment">
-								<div class="slide-apartment__content">
-									<div class="slide-apartment__image apartment-image">
-										<div class="apartment-image__item -ibg">
-											<picture><source srcset="img/slider/3.webp" type="image/webp"><img src="img/slider/3.png" alt="slider image" / loading="lazy" decoding="async"></picture>
-										</div>
-										<div class="apartment-image__number">
-											<p>№309</p>
-										</div>
-										<div class="apartment-image__square">
-											<p>89 м²</p>
-										</div>
-									</div>
-
-									<div class="slide-apartments__description description-apartment">
-										<div class="description-apartment__title">
-											<h4>65 400 ₽/мес</h4>
-										</div>
-										<div class="description-apartment__suptitle">
-											<p>3 этаж</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- Слайд -->
-							<div data-popup="#popup" class="apartments__slide swiper-slide slide-apartment">
-								<div class="slide-apartment__content">
-									<div class="slide-apartment__image apartment-image">
-										<div class="apartment-image__item -ibg">
-											<picture><source srcset="img/slider/3.webp" type="image/webp"><img src="img/slider/3.png" alt="slider image" / loading="lazy" decoding="async"></picture>
-										</div>
-										<div class="apartment-image__number">
-											<p>№309</p>
-										</div>
-										<div class="apartment-image__square">
-											<p>89 м²</p>
-										</div>
-									</div>
-
-									<div class="slide-apartments__description description-apartment">
-										<div class="description-apartment__title">
-											<h4>65 400 ₽/мес</h4>
-										</div>
-										<div class="description-apartment__suptitle">
-											<p>3 этаж</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="apartments__arrows">
-						<button type="button" class="swiper-button-prev"></button>
-						<button type="button" class="swiper-button-next"></button>
-					</div>
-				</div>
-			</section>
-
-			<section class="page__contacts">
+                        <section class="page__contacts">
 				<div class="contacts__container">
 					<div class="contacts__title title gray">
 						<h2>Связаться с мером</h2>
