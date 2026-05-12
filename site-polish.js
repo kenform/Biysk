@@ -1,50 +1,85 @@
 (() => {
-  const ready = (fn) => {
+  const onReady = (callback) => {
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', fn, { once: true });
-    } else {
-      fn();
-    }
-  };
-
-  ready(() => {
-    const revealTargets = [
-      '.page__intro',
-      '.intro__body',
-      '.page__tabs',
-      '.tabs__main-title',
-      '.tabs__content',
-      '.page__city',
-      '.city__content',
-      '.digits-city__item',
-      '.page__apartments',
-      '.apartments__slide',
-      '.page__contacts',
-      '.contacts__body'
-    ];
-
-    const elements = [...document.querySelectorAll(revealTargets.join(','))]
-      .filter((el, index, arr) => arr.indexOf(el) === index);
-
-    if (!('IntersectionObserver' in window)) {
-      elements.forEach((el) => el.classList.add('is-visible'));
+      document.addEventListener('DOMContentLoaded', callback);
       return;
     }
 
-    elements.forEach((el) => el.classList.add('js-reveal'));
+    callback();
+  };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
+  onReady(() => {
+    const root = document.documentElement;
+    const burger = document.querySelector('.icon-menu');
+    const menu = document.querySelector('.menu__body');
+
+    if (burger && menu) {
+      burger.setAttribute('aria-label', 'Открыть меню');
+      burger.setAttribute('aria-expanded', 'false');
+
+      burger.addEventListener('click', () => {
+        const nextState = root.classList.contains('biysk-menu-open') === false;
+        root.classList.toggle('biysk-menu-open', nextState);
+        burger.setAttribute('aria-expanded', String(nextState));
       });
-    }, {
-      threshold: 0.12,
-      rootMargin: '0px 0px -8% 0px'
+
+      menu.querySelectorAll('.menu__item, a').forEach((item) => {
+        item.addEventListener('click', () => {
+          root.classList.remove('biysk-menu-open');
+          burger.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    document.querySelectorAll('.apartments__slide.swiper-slide-duplicate').forEach((slide) => {
+      slide.remove();
     });
 
-    elements.forEach((el) => observer.observe(el));
+    const revealSelectors = [
+      '.intro__title',
+      '.intro__image',
+      '.intro__content',
+      '.tabs__main-title',
+      '.tabs__navigation',
+      '.tabs__body',
+      '.city__title',
+      '.city__description',
+      '.city__info',
+      '.apartments__title',
+      '.apartments__slider',
+      '.contacts__title',
+      '.contacts__address',
+      '.contacts__form'
+    ];
+
+    const revealItems = Array.from(document.querySelectorAll(revealSelectors.join(',')));
+
+    revealItems.forEach((item) => {
+      item.classList.add('js-reveal');
+    });
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+      );
+
+      revealItems.forEach((item) => {
+        observer.observe(item);
+      });
+
+      return;
+    }
+
+    revealItems.forEach((item) => {
+      item.classList.add('is-visible');
+    });
   });
 })();
-
