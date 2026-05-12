@@ -276,3 +276,494 @@ body {
     border-radius: 22px;
   }
 }
+
+/* === Biysk UX repair layer: mobile menu, buttons, sliders, reveal === */
+:root {
+  --biysk-ink: #17211b;
+  --biysk-muted: #627066;
+  --biysk-bg: #f3efe6;
+  --biysk-card: #fffaf0;
+  --biysk-green: #315b3f;
+  --biysk-green-dark: #14271b;
+  --biysk-gold: #c79a52;
+  --biysk-border: rgba(23, 33, 27, 0.14);
+  --biysk-shadow: 0 24px 70px rgba(23, 33, 27, 0.14);
+}
+
+body {
+  background: #244246;
+  color: var(--biysk-ink);
+}
+
+.wrapper {
+  width: 100%;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(199, 154, 82, 0.1), transparent 34rem),
+    radial-gradient(circle at 86% 24%, rgba(49, 91, 63, 0.09), transparent 32rem),
+    var(--biysk-bg);
+}
+
+/* Buttons: remove skewed old look and center text properly */
+.button,
+.header__button.button,
+.button__transp-black,
+.button__transp-white,
+.form__button .button,
+.info-popup__button .button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  min-height: 56px !important;
+  padding: 0 28px !important;
+  border: 1px solid rgba(20, 39, 27, 0.18) !important;
+  border-radius: 999px !important;
+  background: var(--biysk-green-dark) !important;
+  color: #fff !important;
+  line-height: 1.1 !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  box-shadow: 0 16px 36px rgba(20, 39, 27, 0.18);
+  overflow: hidden !important;
+  transform: none !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+}
+
+.button::before,
+.button::after,
+.button__transp-black::before,
+.button__transp-black::after,
+.button__transp-white::before,
+.button__transp-white::after {
+  display: none !important;
+}
+
+.button img,
+.header__button img,
+.form__button img,
+.info-popup__button img {
+  width: 22px !important;
+  height: 22px !important;
+  flex: 0 0 22px !important;
+  object-fit: contain !important;
+}
+
+.button:hover,
+.header__button.button:hover,
+.button__transp-black:hover,
+.button__transp-white:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 22px 48px rgba(20, 39, 27, 0.24);
+}
+
+/* Header */
+.header {
+  background: rgba(255, 250, 240, 0.9) !important;
+  border-bottom: 1px solid rgba(23, 33, 27, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.header._header-scroll {
+  background: rgba(255, 250, 240, 0.96) !important;
+  box-shadow: 0 16px 42px rgba(23, 33, 27, 0.08);
+}
+
+/* Hero readability */
+.main-block {
+  position: relative;
+  isolation: isolate;
+}
+
+.main-block::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(90deg, rgba(9, 18, 13, 0.72), rgba(9, 18, 13, 0.3) 52%, rgba(9, 18, 13, 0.08)),
+    linear-gradient(180deg, rgba(9, 18, 13, 0.18), rgba(9, 18, 13, 0.62));
+  pointer-events: none;
+}
+
+.main-block__container,
+.main-block__content {
+  position: relative;
+  z-index: 1;
+}
+
+.main-block__title img {
+  filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.35));
+}
+
+.main-block__text p {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+}
+
+/* Sections/cards */
+.title h2 {
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+}
+
+.page__intro,
+.page__tabs,
+.page__city,
+.page__contacts {
+  background: transparent !important;
+}
+
+.intro__image .image-block__item,
+.city__description-image .image-block__item,
+.info-city__image .image-block__item,
+.tabs__image,
+.slide-apartments__image,
+.slider-rooms__image {
+  overflow: hidden;
+  border-radius: 28px;
+  box-shadow: var(--biysk-shadow);
+}
+
+.intro__content,
+.city__description,
+.info-city__digits,
+.contacts__form,
+.address-contacts {
+  border: 1px solid var(--biysk-border);
+  border-radius: 28px;
+  background: rgba(255, 250, 240, 0.74);
+  box-shadow: 0 18px 55px rgba(23, 33, 27, 0.08);
+}
+
+.intro__content,
+.city__description,
+.contacts__form,
+.address-contacts {
+  padding: clamp(22px, 3vw, 40px) !important;
+}
+
+/* Tabs */
+.tabs__navigation {
+  border: 1px solid var(--biysk-border);
+  border-radius: 999px;
+  background: rgba(255, 250, 240, 0.86);
+  box-shadow: 0 18px 48px rgba(23, 33, 27, 0.08);
+  overflow: hidden;
+}
+
+.tabs__title {
+  color: var(--biysk-muted);
+  opacity: 1 !important;
+}
+
+.tabs__title._tab-active {
+  color: var(--biysk-green-dark) !important;
+  background: rgba(49, 91, 63, 0.1);
+}
+
+/* Apartments slider */
+.page__apartments {
+  background:
+    radial-gradient(circle at 18% 12%, rgba(199, 154, 82, 0.16), transparent 30rem),
+    linear-gradient(180deg, #202020, #151515) !important;
+}
+
+.apartments__slider {
+  overflow: hidden !important;
+}
+
+.apartments__slide {
+  border-radius: 30px !important;
+  overflow: hidden !important;
+  background: #202020;
+}
+
+.apartments__slide img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.description-apartment {
+  color: #fff;
+}
+
+.description-apartment__title,
+.description-apartment__price,
+.description-apartment__floor,
+.description-apartment__suptitle {
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+}
+
+.apartments__arrows {
+  position: static !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 24px !important;
+  width: 100% !important;
+  margin: 36px auto 0 !important;
+  transform: none !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  position: relative !important;
+  inset: auto !important;
+  width: 62px !important;
+  height: 62px !important;
+  margin: 0 !important;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff !important;
+  transform: none !important;
+  transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px) !important;
+}
+
+/* Contacts */
+.contacts__body {
+  align-items: start !important;
+}
+
+.form-contacts input,
+.form input {
+  border-radius: 0 !important;
+  min-height: 56px;
+}
+
+.form__button {
+  display: flex !important;
+  align-items: center !important;
+  gap: 20px !important;
+  flex-wrap: wrap !important;
+}
+
+.form__personal-data {
+  max-width: 520px;
+  margin: 0 !important;
+  line-height: 1.45 !important;
+}
+
+.contacts__address a {
+  word-break: break-word;
+}
+
+/* Reveal animations */
+.js-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  filter: blur(3px);
+  transition:
+    opacity 720ms ease,
+    transform 720ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 720ms ease;
+}
+
+.js-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* Mobile fixes */
+@media (max-width: 767.98px) {
+  body {
+    background: #244246;
+  }
+
+  .wrapper {
+    max-width: 100%;
+  }
+
+  .header {
+    background: rgba(255, 250, 240, 0.97) !important;
+  }
+
+  .header__container {
+    min-height: 72px !important;
+  }
+
+  .icon-menu {
+    position: relative !important;
+    z-index: 100 !important;
+  }
+
+  .menu__body {
+    position: fixed !important;
+    inset: 0 auto 0 0 !important;
+    z-index: 90 !important;
+    width: min(88vw, 390px) !important;
+    height: 100svh !important;
+    padding: 76px 28px 34px !important;
+    overflow-y: auto !important;
+    background:
+      radial-gradient(circle at 15% 12%, rgba(199, 154, 82, 0.16), transparent 16rem),
+      #050605 !important;
+    transform: translateX(-105%) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1) !important;
+    box-shadow: 28px 0 60px rgba(0, 0, 0, 0.34);
+  }
+
+  html.menu-open .menu__body,
+  body.menu-open .menu__body,
+  .menu-open .menu__body {
+    transform: translateX(0) !important;
+  }
+
+  .menu__logo {
+    margin-bottom: 52px !important;
+  }
+
+  .menu__list {
+    display: grid !important;
+    gap: 24px !important;
+  }
+
+  .menu__item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    color: #fff !important;
+    font-size: clamp(28px, 8vw, 38px) !important;
+    line-height: 1.05 !important;
+  }
+
+  .menu__item-arrow {
+    width: 24px !important;
+    flex: 0 0 24px !important;
+  }
+
+  .menu__contact {
+    margin-top: 48px !important;
+  }
+
+  .main-block {
+    min-height: 720px;
+  }
+
+  .main-block::before {
+    background:
+      linear-gradient(180deg, rgba(9, 18, 13, 0.46), rgba(9, 18, 13, 0.78)),
+      linear-gradient(90deg, rgba(9, 18, 13, 0.52), rgba(9, 18, 13, 0.18));
+  }
+
+  .title h2 {
+    letter-spacing: -0.035em;
+  }
+
+  .button,
+  .header__button.button,
+  .button__transp-black,
+  .button__transp-white,
+  .form__button .button {
+    width: 100% !important;
+    min-height: 58px !important;
+    padding: 0 22px !important;
+  }
+
+  .tabs__navigation {
+    display: flex !important;
+    gap: 8px !important;
+    padding: 8px !important;
+    border-radius: 22px !important;
+    overflow-x: auto !important;
+    scrollbar-width: none;
+  }
+
+  .tabs__navigation::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tabs__title {
+    flex: 0 0 auto !important;
+    min-width: max-content !important;
+    padding: 12px 16px !important;
+    border-radius: 999px !important;
+    font-size: 16px !important;
+    line-height: 1.15 !important;
+  }
+
+  .tabs__image,
+  .intro__image .image-block__item,
+  .city__description-image .image-block__item,
+  .info-city__image .image-block__item {
+    border-radius: 20px !important;
+  }
+
+  .intro__content,
+  .city__description,
+  .contacts__form,
+  .address-contacts {
+    border-radius: 22px !important;
+  }
+
+  .page__apartments {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .apartments__slider {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .apartments__slide {
+    border-radius: 22px !important;
+  }
+
+  .description-apartment__title {
+    font-size: clamp(54px, 16vw, 82px) !important;
+    line-height: 0.95 !important;
+  }
+
+  .description-apartment__price {
+    font-size: clamp(24px, 7vw, 34px) !important;
+  }
+
+  .apartments__arrows {
+    margin-top: 24px !important;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 56px !important;
+    height: 56px !important;
+  }
+
+  .contacts__body {
+    display: grid !important;
+    gap: 28px !important;
+  }
+
+  .form__button {
+    display: grid !important;
+    gap: 16px !important;
+  }
+
+  .form__personal-data {
+    max-width: 100%;
+    font-size: 14px !important;
+    text-align: left !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+}
+/* === /Biysk UX repair layer === */
