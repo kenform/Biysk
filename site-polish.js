@@ -1,56 +1,43 @@
 (() => {
   const body = document.body;
   const burger = document.querySelector('.burger');
-  const closeMenuEls = document.querySelectorAll('[data-close-menu]');
-  const menuLinks = document.querySelectorAll('.mobile-menu a');
-  const modal = document.querySelector('.modal');
-  const modalImg = document.querySelector('.modal-img');
-  const modalTitle = document.querySelector('.modal-title');
-  const modalPrice = document.querySelector('.modal-price');
-  const modalSize = document.querySelector('.modal-size');
-  const modalFloor = document.querySelector('.modal-floor');
+  const menu = document.querySelector('.mobile-menu');
+  const overlay = document.querySelector('.mobile-overlay');
 
-  function closeMenu() {
-    body.classList.remove('menu-open');
-    burger?.setAttribute('aria-expanded', 'false');
-  }
+  if (!burger || !menu || !overlay) return;
 
-  burger?.addEventListener('click', () => {
-    const isOpen = body.classList.toggle('menu-open');
-    burger.setAttribute('aria-expanded', String(isOpen));
-  });
+  const links = [...menu.querySelectorAll('a[href]')];
 
-  closeMenuEls.forEach((el) => el.addEventListener('click', closeMenu));
-  menuLinks.forEach((link) => link.addEventListener('click', closeMenu));
+  const openMenu = () => {
+    body.classList.add('menu-open', 'no-scroll');
+    burger.setAttribute('aria-expanded', 'true');
+  };
 
-  document.querySelectorAll('[data-modal-open]').forEach((card) => {
-    card.addEventListener('click', () => {
-      modalImg.src = card.dataset.img;
-      modalImg.alt = card.dataset.title;
-      modalTitle.textContent = card.dataset.title;
-      modalPrice.textContent = card.dataset.price;
-      modalSize.textContent = card.dataset.size;
-      modalFloor.textContent = card.dataset.floor;
-      modal.classList.add('is-open');
-      modal.setAttribute('aria-hidden', 'false');
-      body.classList.add('no-scroll');
-    });
-  });
+  const closeMenu = () => {
+    body.classList.remove('menu-open', 'no-scroll');
+    burger.setAttribute('aria-expanded', 'false');
+  };
 
-  document.querySelectorAll('[data-modal-close]').forEach((el) => {
-    el.addEventListener('click', () => {
-      modal.classList.remove('is-open');
-      modal.setAttribute('aria-hidden', 'true');
-      body.classList.remove('no-scroll');
-    });
-  });
-
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
+  burger.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (body.classList.contains('menu-open')) {
       closeMenu();
-      modal.classList.remove('is-open');
-      modal.setAttribute('aria-hidden', 'true');
-      body.classList.remove('no-scroll');
+    } else {
+      openMenu();
     }
+  });
+
+  overlay.addEventListener('click', closeMenu);
+
+  links.forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 980) closeMenu();
   });
 })();
