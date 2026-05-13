@@ -7,11 +7,13 @@
 
   const closeMenu = () => {
     body.classList.remove("b-menu-open");
+    window.setTimeout(() => body.classList.remove("b-menu-animate"), 420);
     burger?.setAttribute("aria-expanded", "false");
   };
 
   const openMenu = () => {
     body.classList.add("b-menu-open");
+    body.classList.add("b-menu-animate");
     burger?.setAttribute("aria-expanded", "true");
   };
 
