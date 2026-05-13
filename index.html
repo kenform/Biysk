@@ -4,18 +4,15 @@
   <meta charset="UTF-8">
   <meta name="description" content="Лендинг о Бийске: город, преимущества, квартиры и контакты.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Biysk — city landing page</title>
+  <title>BIYSK — городской лендинг</title>
   <link rel="shortcut icon" href="favicon.svg">
   <link rel="stylesheet" href="site-polish.css">
-  <meta name="theme-color" content="#0d2416">
-  <meta property="og:title" content="Biysk — city landing page">
-  <meta property="og:description" content="Современный лендинг о городе, помещениях и возможностях Бийска.">
-  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#082615">
 </head>
 
 <body>
   <header class="site-header">
-    <div class="container header-grid">
+    <div class="container header-bar">
       <a class="logo" href="#hero" aria-label="BIYSK">BIYSK</a>
 
       <nav class="desktop-nav" aria-label="Основная навигация">
@@ -25,53 +22,60 @@
         <a href="#contacts">Контакты</a>
       </nav>
 
-      <a class="btn header-btn" href="#contacts">
-        <img src="img/svg/button-arrow.svg" alt="">
+      <a class="btn header-cta" href="#contacts">
+        <span class="btn-arrow" aria-hidden="true">→</span>
         <span>Стать бийчанином</span>
       </a>
 
-      <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false">
+      <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-controls="mobileMenu" aria-expanded="false">
         <span></span>
         <span></span>
       </button>
     </div>
+  </header>
 
-    <div class="mobile-overlay" data-close-menu></div>
+  <div class="menu-overlay" data-menu-close></div>
 
-    <nav class="mobile-menu" aria-label="Мобильное меню">
+  <aside class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu__top">
       <a class="mobile-logo" href="#hero">BIYSK</a>
+      <button class="mobile-close" type="button" aria-label="Закрыть меню">×</button>
+    </div>
+
+    <nav class="mobile-links" aria-label="Мобильная навигация">
       <a href="#about">О городе</a>
       <a href="#features">Преимущества</a>
       <a href="#city">Новый город</a>
       <a href="#apartments">Квартиры</a>
       <a href="#contacts">Контакты</a>
-      <a class="mobile-phone" href="tel:+78005553535">+7 800 555 35 35</a>
     </nav>
-  </header>
+
+    <a class="mobile-phone" href="tel:+78005553535">+7 800 555 35 35</a>
+  </aside>
 
   <main>
-    <section id="hero" class="hero">
+    <section class="hero" id="hero">
       <picture>
         <source srcset="img/main-block/fullscreen.webp" type="image/webp">
         <img src="img/main-block/fullscreen.png" alt="Панорама Бийска">
       </picture>
-      <div class="hero-shade"></div>
-      <div class="container hero-content">
+
+      <div class="hero__content">
         <h1>BIYSK</h1>
-        <p>центр вселенной, жизни и счастья</p>
+        <p>Центр вселенной, жизни и счастья</p>
       </div>
     </section>
 
-    <section id="about" class="section about">
-      <div class="container two-col">
-        <div class="image-card">
+    <section class="section about" id="about">
+      <div class="container about-grid">
+        <figure class="media-card about-media">
           <picture>
             <source srcset="img/Intro.webp" type="image/webp">
-            <img src="img/Intro.png" alt="Вид на Бийск">
+            <img src="img/Intro.png" alt="Вид на Бийск вечером">
           </picture>
-        </div>
+        </figure>
 
-        <div class="text-card">
+        <article class="text-card about-card">
           <p class="eyebrow">О городе</p>
           <h2>Быть ближе к жизни</h2>
           <p>
@@ -80,32 +84,32 @@
             помогают жить активно, но без лишней суеты.
           </p>
 
-          <div class="location-row">
-            <img src="img/svg/tree.svg" alt="">
-            <span>Алтайский край</span>
+          <div class="location">
+            <span aria-hidden="true"></span>
+            <p>Алтайский край</p>
           </div>
 
           <a class="btn" href="#contacts">
-            <img src="img/svg/button-arrow.svg" alt="">
+            <span class="btn-arrow" aria-hidden="true">→</span>
             <span>Стать бийчанином</span>
           </a>
-        </div>
+        </article>
       </div>
     </section>
 
-    <section id="features" class="section features">
+    <section class="section features" id="features">
       <div class="container">
         <div class="section-head">
           <p class="eyebrow">Преимущества</p>
           <h2>Уникальное место для счастья</h2>
-          <p>Без сломанных табов: просто аккуратные карточки с понятной сеткой.</p>
+          <p>Аккуратные карточки вместо сломанных табов и лишних белых блоков.</p>
         </div>
 
         <div class="features-grid">
           <article class="feature-card">
             <picture>
               <source srcset="img/tabs/1.webp" type="image/webp">
-              <img src="img/tabs/1.png" alt="Современные технологии">
+              <img src="img/tabs/1.png" alt="Мост и река в Бийске">
             </picture>
             <div>
               <h3>Современные технологии</h3>
@@ -116,7 +120,7 @@
           <article class="feature-card">
             <picture>
               <source srcset="img/tabs/2.webp" type="image/webp">
-              <img src="img/tabs/2.png" alt="Транспортная доступность">
+              <img src="img/tabs/2.png" alt="Закат над рекой">
             </picture>
             <div>
               <h3>Транспортная доступность</h3>
@@ -127,7 +131,7 @@
           <article class="feature-card">
             <picture>
               <source srcset="img/tabs/3.webp" type="image/webp">
-              <img src="img/tabs/3.png" alt="Городская среда">
+              <img src="img/tabs/3.png" alt="Историческое здание в Бийске">
             </picture>
             <div>
               <h3>Городская среда</h3>
@@ -138,7 +142,7 @@
           <article class="feature-card">
             <picture>
               <source srcset="img/tabs/4.webp" type="image/webp">
-              <img src="img/tabs/4.png" alt="Красивые виды">
+              <img src="img/tabs/4.png" alt="Храм на закате">
             </picture>
             <div>
               <h3>Красивые виды</h3>
@@ -149,86 +153,96 @@
       </div>
     </section>
 
-    <section id="city" class="section city">
+    <section class="section city" id="city">
       <div class="container city-grid">
-        <div class="text-card city-copy">
+        <article class="text-card city-card">
           <p class="eyebrow">Новый город</p>
           <h2>Ваш новый город</h2>
           <p>
             Город для ваших амбиций: просторные помещения, функциональные зоны,
             понятная инфраструктура и виды, которые хочется показывать.
           </p>
+
           <a class="btn" href="#apartments">
-            <img src="img/svg/button-arrow.svg" alt="">
+            <span class="btn-arrow" aria-hidden="true">→</span>
             <span>Выбрать панельку</span>
           </a>
-        </div>
+        </article>
 
-        <div class="image-card city-image">
+        <figure class="media-card city-media">
           <picture>
             <source srcset="img/city/1.webp" type="image/webp">
             <img src="img/city/1.png" alt="Архитектура Бийска">
           </picture>
-        </div>
-      </div>
+        </figure>
 
-      <div class="container stats-grid">
-        <div><strong>13 м²</strong><span>от площади санузлов</span></div>
-        <div><strong>700 м²</strong><span>от площади подъездов</span></div>
-        <div><strong>5,0 м</strong><span>высота домов</span></div>
-        <div><strong>2,0 м</strong><span>высота этажей</span></div>
+        <div class="stats-grid">
+          <article><strong>13 м²</strong><span>от площади санузлов</span></article>
+          <article><strong>700 м²</strong><span>от площади подъездов</span></article>
+          <article><strong>5,0 м</strong><span>высота домов</span></article>
+          <article><strong>2,0 м</strong><span>высота этажей</span></article>
+        </div>
       </div>
     </section>
 
-    <section id="apartments" class="section apartments">
+    <section class="section apartments" id="apartments">
       <div class="container">
-        <div class="section-head section-head-light">
+        <div class="section-head section-head--dark">
           <p class="eyebrow">Каталог</p>
           <h2>Свободные квартиры</h2>
-          <p>Три карточки без дублирования и кривого свайпера.</p>
+          <p>Карточки просто отображаются — без кликов, модалок и старого свайпера.</p>
         </div>
 
         <div class="apartments-grid">
-          <article class="apartment-card" data-modal-open data-title="Квартира №307" data-img="img/slider/1.png" data-price="179 400 ₽/мес" data-size="46.26 м²" data-floor="2 этаж">
-            <img src="img/slider/1.png" alt="Квартира №307">
-            <div class="apartment-meta">
+          <article class="apartment-card">
+            <picture>
+              <source srcset="img/slider/1.webp" type="image/webp">
+              <img src="img/slider/1.png" alt="Квартира №307">
+            </picture>
+            <div class="apartment-card__top">
               <span>№307</span>
               <strong>46 м²</strong>
             </div>
-            <div class="apartment-bottom">
-              <strong>179 400 ₽/мес</strong>
-              <span>2 этаж</span>
+            <div class="apartment-card__body">
+              <h3>179 400 ₽/мес</h3>
+              <p>2 этаж</p>
             </div>
           </article>
 
-          <article class="apartment-card" data-modal-open data-title="Квартира №308" data-img="img/slider/2.png" data-price="80 400 ₽/мес" data-size="105 м²" data-floor="2 этаж">
-            <img src="img/slider/2.png" alt="Квартира №308">
-            <div class="apartment-meta">
+          <article class="apartment-card">
+            <picture>
+              <source srcset="img/slider/2.webp" type="image/webp">
+              <img src="img/slider/2.png" alt="Квартира №308">
+            </picture>
+            <div class="apartment-card__top">
               <span>№308</span>
               <strong>105 м²</strong>
             </div>
-            <div class="apartment-bottom">
-              <strong>80 400 ₽/мес</strong>
-              <span>2 этаж</span>
+            <div class="apartment-card__body">
+              <h3>80 400 ₽/мес</h3>
+              <p>2 этаж</p>
             </div>
           </article>
 
-          <article class="apartment-card" data-modal-open data-title="Квартира №309" data-img="img/slider/3.png" data-price="65 400 ₽/мес" data-size="89 м²" data-floor="3 этаж">
-            <img src="img/slider/3.png" alt="Квартира №309">
-            <div class="apartment-meta">
+          <article class="apartment-card">
+            <picture>
+              <source srcset="img/slider/3.webp" type="image/webp">
+              <img src="img/slider/3.png" alt="Квартира №309">
+            </picture>
+            <div class="apartment-card__top">
               <span>№309</span>
               <strong>89 м²</strong>
             </div>
-            <div class="apartment-bottom">
-              <strong>65 400 ₽/мес</strong>
-              <span>3 этаж</span>
+            <div class="apartment-card__body">
+              <h3>65 400 ₽/мес</h3>
+              <p>3 этаж</p>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="contacts" class="section contacts">
+    <section class="section contacts" id="contacts">
       <div class="container">
         <div class="section-head">
           <p class="eyebrow">Контакты</p>
@@ -237,37 +251,43 @@
         </div>
 
         <div class="contacts-grid">
-          <div class="contact-card">
-            <a class="phone" href="tel:+78005553535">+7 800 555 35 35</a>
-            <a class="mail" href="mailto:info@biysk.ru">info@biysk.ru</a>
+          <address class="contact-card">
+            <a class="contact-phone" href="tel:+78005553535">+7 800 555 35 35</a>
+            <a class="contact-email" href="mailto:info@biysk.ru">info@biysk.ru</a>
             <p>Алтайский край, город Бийск</p>
-          </div>
+          </address>
 
           <form class="form-card" action="#">
             <h3>Записаться на встречу</h3>
+
             <label>
               <span>Имя</span>
-              <input type="text" name="name">
+              <input type="text" name="name" autocomplete="name">
             </label>
+
             <label>
               <span>Телефон</span>
-              <input type="tel" name="phone">
+              <input type="tel" name="phone" autocomplete="tel">
             </label>
-            <button class="btn" type="submit">
-              <img src="img/svg/button-arrow.svg" alt="">
+
+            <button class="btn btn-wide" type="submit">
+              <span class="btn-arrow" aria-hidden="true">→</span>
               <span>Отправить</span>
             </button>
-            <p class="privacy">Нажимая “отправить”, вы соглашаетесь с политикой конфиденциальности.</p>
+
+            <p class="form-note">
+              Нажимая «отправить», вы соглашаетесь с политикой конфиденциальности.
+            </p>
           </form>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
+  <footer class="site-footer">
     <div class="container footer-grid">
       <div>
-        <div class="footer-logo">BIYSK</div>
+        <a class="footer-logo" href="#hero">BIYSK</a>
         <p>Городской лендинг о жизни, помещениях и возможностях Бийска.</p>
       </div>
 
@@ -278,42 +298,20 @@
         <a href="#contacts">Контакты</a>
       </nav>
 
-      <div class="footer-socials">
+      <div class="footer-socials" aria-label="Социальные сети">
         <a href="#" aria-label="Instagram"><img src="img/svg/instagram.svg" alt=""></a>
         <a href="#" aria-label="VK"><img src="img/svg/vk.svg" alt=""></a>
         <a href="#" aria-label="Telegram"><img src="img/svg/telegram.svg" alt=""></a>
       </div>
-    </div>
 
-    <div class="container footer-bottom">
-      <p>Вся информация на сайте носит информационный характер и не является публичной офертой.</p>
-      <a href="#">Политика конфиденциальности</a>
-      <span>©2026</span>
+      <div class="footer-bottom">
+        <p>Вся информация на сайте носит информационный характер и не является публичной офертой.</p>
+        <a href="#">Политика конфиденциальности</a>
+        <p>©2026</p>
+      </div>
     </div>
   </footer>
 
-  <div class="modal" aria-hidden="true">
-    <div class="modal-backdrop" data-modal-close></div>
-    <div class="modal-window" role="dialog" aria-modal="true" aria-label="Квартира">
-      <button class="modal-close" type="button" data-modal-close aria-label="Закрыть">×</button>
-      <div class="modal-grid">
-        <img class="modal-img" src="img/slider/1.png" alt="">
-        <div class="modal-info">
-          <h2 class="modal-title">Квартира №307</h2>
-          <p class="modal-price">179 400 ₽/мес</p>
-          <div class="modal-facts">
-            <span class="modal-size">46.26 м²</span>
-            <span class="modal-floor">2 этаж</span>
-          </div>
-          <p>Просторное помещение свободного назначения. Подойдёт под рабочие зоны, переговорные, шоурум или небольшой офис.</p>
-          <a class="btn" href="#contacts" data-modal-close>
-            <img src="img/svg/button-arrow.svg" alt="">
-            <span>Оставить заявку</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-        <script src="site-polish.js"></script>
+  <script src="site-polish.js"></script>
 </body>
 </html>

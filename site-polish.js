@@ -1,46 +1,58 @@
 (() => {
   const body = document.body;
-  const burger = document.querySelector(".burger");
+  const toggle = document.querySelector(".menu-toggle");
   const menu = document.querySelector(".mobile-menu");
-  const closeBtn = document.querySelector(".mobile-close");
-  const backdrop = document.querySelector(".menu-backdrop");
-  const links = document.querySelectorAll(".mobile-menu a[href^='#'], .desktop-nav a[href^='#'], .header-btn[href^='#'], .btn[href^='#']");
+  const closeButton = document.querySelector(".mobile-close");
+  const overlay = document.querySelector(".menu-overlay");
+  const scrollLinks = document.querySelectorAll('a[href^="#"]');
 
   const openMenu = () => {
-    body.classList.add("menu-open", "no-scroll");
-    burger?.setAttribute("aria-expanded", "true");
+    body.classList.add("menu-open");
+    toggle?.setAttribute("aria-expanded", "true");
+    menu?.setAttribute("aria-hidden", "false");
   };
 
   const closeMenu = () => {
-    body.classList.remove("menu-open", "no-scroll");
-    burger?.setAttribute("aria-expanded", "false");
+    body.classList.remove("menu-open");
+    toggle?.setAttribute("aria-expanded", "false");
+    menu?.setAttribute("aria-hidden", "true");
   };
 
-  burger?.addEventListener("click", () => {
+  toggle?.addEventListener("click", () => {
     body.classList.contains("menu-open") ? closeMenu() : openMenu();
   });
 
-  closeBtn?.addEventListener("click", closeMenu);
-  backdrop?.addEventListener("click", closeMenu);
-
-  menu?.addEventListener("click", (event) => {
-    if (event.target.closest("a")) closeMenu();
-  });
+  closeButton?.addEventListener("click", closeMenu);
+  overlay?.addEventListener("click", closeMenu);
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") closeMenu();
   });
 
-  links.forEach((link) => {
+  scrollLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
       const href = link.getAttribute("href");
       if (!href || href === "#") return;
+
       const target = document.querySelector(href);
       if (!target) return;
 
       event.preventDefault();
       closeMenu();
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      const headerHeight = document.querySelector(".site-header")?.offsetHeight || 0;
+      const top = target.getBoundingClientRect().top + window.scrollY - headerHeight + 1;
+
+      window.scrollTo({
+        top,
+        behavior: "smooth"
+      });
+    });
+  });
+
+  document.querySelectorAll("form").forEach((form) => {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
     });
   });
 })();
