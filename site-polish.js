@@ -1,19 +1,19 @@
+
 (() => {
   const body = document.body;
-  const toggle = document.querySelector(".menu-toggle");
+  const toggle = document.querySelector(".menu-toggle, .burger");
   const menu = document.querySelector(".mobile-menu");
-  const closeButton = document.querySelector(".mobile-close");
-  const overlay = document.querySelector(".menu-overlay");
-  const scrollLinks = document.querySelectorAll('a[href^="#"]');
+  const closeButtons = document.querySelectorAll(".mobile-close, [data-menu-close], [data-close-menu], .menu-overlay, .mobile-overlay");
+  const menuLinks = document.querySelectorAll(".mobile-menu a[href^='#']");
 
   const openMenu = () => {
-    body.classList.add("menu-open");
+    body.classList.add("menu-open", "no-scroll");
     toggle?.setAttribute("aria-expanded", "true");
     menu?.setAttribute("aria-hidden", "false");
   };
 
   const closeMenu = () => {
-    body.classList.remove("menu-open");
+    body.classList.remove("menu-open", "no-scroll");
     toggle?.setAttribute("aria-expanded", "false");
     menu?.setAttribute("aria-hidden", "true");
   };
@@ -22,31 +22,34 @@
     body.classList.contains("menu-open") ? closeMenu() : openMenu();
   });
 
-  closeButton?.addEventListener("click", closeMenu);
-  overlay?.addEventListener("click", closeMenu);
+  closeButtons.forEach((button) => {
+    button.addEventListener("click", closeMenu);
+  });
+
+  menuLinks.forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") closeMenu();
   });
 
-  scrollLinks.forEach((link) => {
+  document.querySelectorAll("a[href^='#']").forEach((link) => {
     link.addEventListener("click", (event) => {
-      const href = link.getAttribute("href");
-      if (!href || href === "#") return;
+      const id = link.getAttribute("href");
+      if (!id || id === "#") return;
 
-      const target = document.querySelector(href);
+      const target = document.querySelector(id);
       if (!target) return;
 
       event.preventDefault();
       closeMenu();
 
-      const headerHeight = document.querySelector(".site-header")?.offsetHeight || 0;
+      const header = document.querySelector(".site-header");
+      const headerHeight = header ? header.offsetHeight : 0;
       const top = target.getBoundingClientRect().top + window.scrollY - headerHeight + 1;
 
-      window.scrollTo({
-        top,
-        behavior: "smooth"
-      });
+      window.scrollTo({ top, behavior: "smooth" });
     });
   });
 
