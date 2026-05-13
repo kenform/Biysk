@@ -2652,3 +2652,290 @@ body.menu-open .mobile-menu {
   }
 }
 /* Biysk final visual balance pass END */
+
+/* Biysk balanced typography and hover pass */
+:root {
+  --biysk-title-xl: clamp(42px, 6vw, 82px);
+  --biysk-title-lg: clamp(38px, 5.2vw, 72px);
+  --biysk-title-md: clamp(30px, 3.6vw, 48px);
+  --biysk-text-lg: clamp(18px, 1.55vw, 23px);
+}
+
+/* readable hover states */
+.site-header a:hover,
+.desktop-nav a:hover,
+.header__nav a:hover {
+  color: #0b2b19;
+  opacity: 0.72;
+}
+
+.site-footer a:hover,
+.footer a:hover,
+.mobile-menu a:hover {
+  color: #ffffff;
+  opacity: 0.74;
+}
+
+/* global heading balance */
+main section h2,
+.section-title,
+.section-title h2,
+.section-head h2,
+.title h2 {
+  max-width: 980px;
+  font-size: var(--biysk-title-xl);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+  text-wrap: balance;
+}
+
+#about h2,
+#city h2,
+.about h2,
+.city h2 {
+  font-size: var(--biysk-title-lg);
+}
+
+#contacts h2,
+.contacts h2 {
+  max-width: 820px;
+  font-size: clamp(42px, 5.4vw, 76px);
+}
+
+#apartments h2,
+.apartments h2 {
+  max-width: 780px;
+  font-size: clamp(42px, 5.5vw, 78px);
+}
+
+.section-subtitle,
+.section-lead,
+.contacts__lead,
+.apartments__lead {
+  max-width: 780px;
+  margin-inline: auto;
+  font-size: var(--biysk-text-lg);
+  line-height: 1.45;
+}
+
+/* about / city visual balance */
+#about .container,
+.about .container,
+.intro__container {
+  align-items: center;
+}
+
+#about img,
+.about img,
+.intro__image img {
+  border-radius: clamp(22px, 2.5vw, 34px);
+}
+
+#city,
+.city,
+.page__city {
+  padding-block: clamp(84px, 8vw, 128px);
+}
+
+#city .container,
+.city .container,
+.city__container {
+  display: grid;
+  gap: clamp(36px, 5vw, 72px);
+}
+
+.city-card,
+.city__description,
+.city__content-card {
+  align-self: center;
+}
+
+.city-image,
+.city__image,
+.info-city__image {
+  align-self: center;
+}
+
+.city-image img,
+.city__image img,
+.info-city__image img {
+  width: 100%;
+  max-height: 520px;
+  object-fit: cover;
+  border-radius: clamp(22px, 2.5vw, 34px);
+}
+
+/* apartment cards are just cards, not modal triggers */
+#apartments article,
+#apartments .apartment-card,
+.apartments article,
+.apartment-card {
+  cursor: default;
+}
+
+#apartments article:hover,
+#apartments .apartment-card:hover,
+.apartments article:hover,
+.apartment-card:hover {
+  transform: none;
+}
+
+#apartments article::after,
+#apartments .apartment-card::after,
+.apartments article::after,
+.apartment-card::after {
+  content: none;
+}
+
+.apartment-card h3,
+.apartment-card .price,
+.apartments h3 {
+  letter-spacing: -0.035em;
+}
+
+/* contacts balance */
+#contacts,
+.contacts,
+.page__contacts {
+  padding-block: clamp(84px, 8vw, 128px);
+}
+
+.contacts-grid,
+.contacts__content,
+.contacts__body {
+  align-items: stretch;
+  gap: clamp(28px, 4vw, 56px);
+}
+
+.contact-card,
+.contacts__address,
+.contacts__form,
+.form-contacts {
+  min-height: auto;
+}
+
+.contact-card a[href^="tel"],
+.contacts a[href^="tel"],
+.address-contacts a[href^="tel"] {
+  display: inline-block;
+  max-width: 100%;
+  font-size: clamp(34px, 4.4vw, 56px);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+  white-space: nowrap;
+}
+
+.contact-card a[href^="mailto"],
+.contacts a[href^="mailto"],
+.address-contacts a[href^="mailto"] {
+  font-size: clamp(25px, 3vw, 40px);
+  line-height: 1.1;
+  word-break: break-word;
+}
+
+.contacts form,
+.form-contacts form,
+.form {
+  display: grid;
+  gap: clamp(20px, 2.5vw, 34px);
+}
+
+.contacts input,
+.form input,
+.form-contacts input {
+  width: 100%;
+  min-height: 52px;
+  border-radius: 0;
+}
+
+/* footer contrast */
+.site-footer,
+.footer {
+  background: #082615;
+  color: #ffffff;
+}
+
+.site-footer a,
+.footer a,
+.site-footer p,
+.footer p {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.site-footer .logo,
+.footer .logo,
+.footer__logo {
+  color: #ffffff;
+}
+
+.site-footer svg,
+.footer svg,
+.site-footer img,
+.footer img {
+  opacity: 1;
+}
+
+/* mobile menu: less weird side gap, cleaner drawer */
+@media (max-width: 767px) {
+  .site-header,
+  .header {
+    min-height: 72px;
+  }
+
+  .header-grid,
+  .header-inner,
+  .header__container {
+    width: min(100% - 28px, 1180px);
+    min-height: 72px;
+    gap: 16px;
+  }
+
+  .desktop-nav,
+  .header__nav,
+  .header-btn,
+  .header__actions {
+    display: none;
+  }
+
+  .burger,
+  .icon-menu {
+    display: inline-flex;
+    margin-left: auto;
+  }
+
+  .mobile-menu,
+  .menu__body {
+    left: 0;
+    width: min(86vw, 390px);
+    border-radius: 0 28px 28px 0;
+  }
+
+  main section h2,
+  .section-title,
+  .section-title h2,
+  .section-head h2,
+  .title h2 {
+    font-size: clamp(34px, 10vw, 50px);
+    line-height: 0.98;
+  }
+
+  #contacts h2,
+  .contacts h2,
+  #apartments h2,
+  .apartments h2 {
+    font-size: clamp(34px, 10vw, 48px);
+  }
+
+  .contact-card a[href^="tel"],
+  .contacts a[href^="tel"],
+  .address-contacts a[href^="tel"] {
+    font-size: clamp(30px, 9vw, 42px);
+    white-space: normal;
+  }
+
+  .contact-card a[href^="mailto"],
+  .contacts a[href^="mailto"],
+  .address-contacts a[href^="mailto"] {
+    font-size: clamp(24px, 7vw, 34px);
+  }
+}
