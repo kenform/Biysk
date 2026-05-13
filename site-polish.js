@@ -1,6 +1,6 @@
 const body = document.body;
 const burger = document.querySelector('.burger');
-const closeBtn = document.querySelector('.mobile-close');
+const closeButton = document.querySelector('.mobile-close');
 const backdrop = document.querySelector('[data-close-menu]');
 const menuLinks = document.querySelectorAll('.mobile-menu a');
 
@@ -18,7 +18,7 @@ burger?.addEventListener('click', () => {
   body.classList.contains('menu-open') ? closeMenu() : openMenu();
 });
 
-closeBtn?.addEventListener('click', closeMenu);
+closeButton?.addEventListener('click', closeMenu);
 backdrop?.addEventListener('click', closeMenu);
 
 menuLinks.forEach((link) => {
@@ -27,4 +27,16 @@ menuLinks.forEach((link) => {
 
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') closeMenu();
+});
+
+document.querySelectorAll('[data-popup], .apartments__slide, .apartment-card').forEach((card) => {
+  card.removeAttribute('data-popup');
+  card.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+  }, true);
+});
+
+document.querySelectorAll('.popup, .popup_show, [id="popup"]').forEach((popup) => {
+  popup.remove();
 });

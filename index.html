@@ -7,7 +7,7 @@
   <title>Biysk — city landing page</title>
   <link rel="shortcut icon" href="favicon.svg">
   <link rel="stylesheet" href="site-polish.css">
-  <meta name="theme-color" content="#0b2b19">
+  <meta name="theme-color" content="#082615">
 </head>
 
 <body>
@@ -36,18 +36,22 @@
 
   <div class="menu-backdrop" data-close-menu></div>
 
-  <nav class="mobile-menu" aria-label="Мобильное меню">
+  <aside class="mobile-menu" aria-label="Мобильное меню">
     <div class="mobile-menu__top">
       <a class="mobile-logo" href="#hero">BIYSK</a>
       <button class="mobile-close" type="button" aria-label="Закрыть меню">×</button>
     </div>
-    <a href="#about">О городе</a>
-    <a href="#features">Преимущества</a>
-    <a href="#city">Новый город</a>
-    <a href="#apartments">Квартиры</a>
-    <a href="#contacts">Контакты</a>
+
+    <nav class="mobile-links">
+      <a href="#about">О городе</a>
+      <a href="#features">Преимущества</a>
+      <a href="#city">Новый город</a>
+      <a href="#apartments">Квартиры</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+
     <a class="mobile-phone" href="tel:+78005553535">+7 800 555 35 35</a>
-  </nav>
+  </aside>
 
   <main>
     <section id="hero" class="hero">
@@ -55,7 +59,7 @@
         <source srcset="img/main-block/fullscreen.webp" type="image/webp">
         <img src="img/main-block/fullscreen.png" alt="Панорама Бийска">
       </picture>
-      <div class="hero__content">
+      <div class="hero-content">
         <h1>BIYSK</h1>
         <p>центр вселенной, жизни и счастья</p>
       </div>
@@ -70,7 +74,7 @@
           </picture>
         </div>
 
-        <div class="card about-card">
+        <div class="panel about-panel">
           <p class="eyebrow">О городе</p>
           <h2>Быть ближе к жизни</h2>
           <p>
@@ -95,25 +99,40 @@
         <div class="section-head">
           <p class="eyebrow">Преимущества</p>
           <h2>Уникальное место для счастья</h2>
-          <p>Аккуратные карточки без сломанных табов, лишних белых блоков и дерганой анимации.</p>
+          <p>Аккуратные карточки вместо сломанных табов и лишних белых блоков.</p>
         </div>
 
         <div class="features-grid">
           <article class="feature-card">
             <picture><source srcset="img/tabs/1.webp" type="image/webp"><img src="img/tabs/1.png" alt=""></picture>
-            <div><h3>Современные технологии</h3><p>Энергоэффективные здания класса А помогают экономить ресурсы.</p></div>
+            <div>
+              <h3>Современные технологии</h3>
+              <p>Энергоэффективные здания класса А помогают экономить ресурсы.</p>
+            </div>
           </article>
+
           <article class="feature-card">
             <picture><source srcset="img/tabs/2.webp" type="image/webp"><img src="img/tabs/2.png" alt=""></picture>
-            <div><h3>Транспортная доступность</h3><p>Удобное расположение для поездок по Алтаю и Сибири.</p></div>
+            <div>
+              <h3>Транспортная доступность</h3>
+              <p>Удобное расположение для поездок по Алтаю и Сибири.</p>
+            </div>
           </article>
+
           <article class="feature-card">
             <picture><source srcset="img/tabs/3.webp" type="image/webp"><img src="img/tabs/3.png" alt=""></picture>
-            <div><h3>Городская среда</h3><p>Спокойная атмосфера, прогулочные места и понятная инфраструктура.</p></div>
+            <div>
+              <h3>Городская среда</h3>
+              <p>Спокойная атмосфера, прогулочные места и понятная инфраструктура.</p>
+            </div>
           </article>
+
           <article class="feature-card">
             <picture><source srcset="img/tabs/4.webp" type="image/webp"><img src="img/tabs/4.png" alt=""></picture>
-            <div><h3>Красивые виды</h3><p>Реки, закаты, архитектура и визуально сильная городская среда.</p></div>
+            <div>
+              <h3>Красивые виды</h3>
+              <p>Реки, закаты, архитектура и визуально сильная городская среда.</p>
+            </div>
           </article>
         </div>
       </div>
@@ -121,7 +140,7 @@
 
     <section id="city" class="section city-section">
       <div class="container city-grid">
-        <div class="card city-card">
+        <div class="panel city-panel">
           <p class="eyebrow">Новый город</p>
           <h2>Ваш новый город</h2>
           <p>
@@ -152,14 +171,14 @@
 
     <section id="apartments" class="section apartments-section">
       <div class="container">
-        <div class="section-head dark">
+        <div class="section-head section-head--dark">
           <p class="eyebrow">Каталог</p>
           <h2>Свободные квартиры</h2>
-          <p>Три карточки без дублирования, кривого свайпера и кликабельных модалок.</p>
+          <p>Карточки теперь просто отображаются — без кликов, модалок и старого свайпера.</p>
         </div>
 
-        <div class="apartments-grid" aria-label="Список квартир">
-          <article class="apartment-card">
+        <div class="apartments-grid">
+          <article class="apartment-card" aria-label="Квартира №307">
             <div class="apartment-image">
               <picture><source srcset="img/slider/1.webp" type="image/webp"><img src="img/slider/1.png" alt="Квартира №307"></picture>
               <span>№307</span>
@@ -171,7 +190,7 @@
             </div>
           </article>
 
-          <article class="apartment-card">
+          <article class="apartment-card" aria-label="Квартира №308">
             <div class="apartment-image">
               <picture><source srcset="img/slider/2.webp" type="image/webp"><img src="img/slider/2.png" alt="Квартира №308"></picture>
               <span>№308</span>
@@ -183,7 +202,7 @@
             </div>
           </article>
 
-          <article class="apartment-card">
+          <article class="apartment-card" aria-label="Квартира №309">
             <div class="apartment-image">
               <picture><source srcset="img/slider/3.webp" type="image/webp"><img src="img/slider/3.png" alt="Квартира №309"></picture>
               <span>№309</span>
@@ -200,33 +219,37 @@
 
     <section id="contacts" class="section contacts-section">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head contacts-head">
           <p class="eyebrow">Контакты</p>
           <h2>Связаться с мэром</h2>
           <p>Оставьте заявку — мы перезвоним и подберём подходящий вариант.</p>
         </div>
 
         <div class="contacts-grid">
-          <address class="card contact-card">
+          <address class="panel contact-card">
             <a class="phone" href="tel:+78005553535">+7 800 555 35 35</a>
             <a class="email" href="mailto:info@biysk.ru">info@biysk.ru</a>
             <p>Алтайский край, город Бийск</p>
           </address>
 
-          <form class="card contact-form" action="#">
+          <form class="panel contact-form" action="#">
             <h3>Записаться на встречу</h3>
+
             <label>
               <span>Имя</span>
               <input type="text" name="name">
             </label>
+
             <label>
               <span>Телефон</span>
               <input type="tel" name="phone">
             </label>
+
             <button class="btn" type="submit">
               <img src="img/svg/button-arrow.svg" alt="">
               <span>Отправить</span>
             </button>
+
             <p class="policy">Нажимая “отправить”, вы соглашаетесь с политикой конфиденциальности.</p>
           </form>
         </div>
@@ -236,7 +259,7 @@
 
   <footer class="site-footer">
     <div class="container footer-grid">
-      <div>
+      <div class="footer-main">
         <a class="footer-logo" href="#hero">BIYSK</a>
         <p>Городской лендинг о жизни, помещениях и возможностях Бийска.</p>
       </div>
