@@ -8,7 +8,7 @@
 
   const setHeaderState = () => {
     if (!header) return;
-    header.classList.toggle('is-scrolled', window.scrollY > 6);
+    header.classList.toggle('is-scrolled', window.scrollY > 4);
   };
 
   const openMenu = () => {
@@ -21,7 +21,8 @@
     burger?.setAttribute('aria-expanded', 'false');
   };
 
-  burger?.addEventListener('click', () => {
+  burger?.addEventListener('click', (event) => {
+    event.preventDefault();
     body.classList.contains('menu-open') ? closeMenu() : openMenu();
   });
 
