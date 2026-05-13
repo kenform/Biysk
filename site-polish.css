@@ -949,3 +949,39 @@ input {
     border-radius: 0;
   }
 }
+
+/* Button hover contrast fix */
+.btn,
+.btn:visited,
+.header-cta,
+.header-cta:visited {
+  color: #fff;
+  opacity: 1;
+}
+
+.btn:hover,
+.btn:focus-visible,
+.header-cta:hover,
+.header-cta:focus-visible {
+  color: #fff;
+  background: #0b3a20;
+  opacity: 1;
+  filter: none;
+  transform: translateY(-1px);
+  box-shadow: 0 20px 42px rgba(8, 47, 26, 0.26);
+}
+
+.btn:hover span,
+.btn:focus-visible span,
+.header-cta:hover span,
+.header-cta:focus-visible span {
+  color: #fff;
+  opacity: 1;
+}
+
+.btn:active,
+.header-cta:active {
+  transform: translateY(0);
+  background: #062414;
+  color: #fff;
+}
