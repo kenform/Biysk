@@ -1400,3 +1400,105 @@ a {
     border-radius: 24px;
   }
 }
+
+/* Biysk desktop city balance fix */
+@media (min-width: 768px) {
+  #city {
+    padding-top: clamp(72px, 7vw, 112px);
+    padding-bottom: clamp(72px, 7vw, 112px);
+  }
+
+  #city .container {
+    max-width: 1240px;
+  }
+
+  #city .city-grid {
+    display: grid;
+    grid-template-columns: minmax(330px, 410px) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(44px, 6vw, 86px);
+  }
+
+  #city .city-card {
+    width: 100%;
+    max-width: 410px;
+    min-height: auto;
+    padding: clamp(34px, 4vw, 52px);
+    border-radius: 30px;
+  }
+
+  #city .city-card .eyebrow,
+  #city .eyebrow {
+    margin-bottom: 20px;
+    font-size: clamp(15px, 1.35vw, 21px);
+    letter-spacing: 0.24em;
+  }
+
+  #city .city-card h2 {
+    max-width: 330px;
+    margin-bottom: 24px;
+    font-size: clamp(44px, 4.35vw, 62px);
+    line-height: 0.96;
+    letter-spacing: -0.045em;
+  }
+
+  #city .city-card p {
+    max-width: 330px;
+    margin-bottom: 30px;
+    font-size: clamp(17px, 1.5vw, 21px);
+    line-height: 1.42;
+  }
+
+  #city .city-card .btn,
+  #city .city-card .header-cta {
+    width: fit-content;
+    min-width: 240px;
+  }
+
+  #city .city-media {
+    align-self: center;
+    width: 100%;
+    max-width: 640px;
+    margin: 0;
+    justify-self: start;
+  }
+
+  #city .city-media img {
+    display: block;
+    width: 100%;
+    height: clamp(300px, 27vw, 410px);
+    object-fit: cover;
+    border-radius: 28px;
+  }
+
+  #city .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(16px, 2vw, 24px);
+    margin-top: clamp(44px, 5vw, 68px);
+  }
+
+  #city .stat-card {
+    min-height: 106px;
+    padding: 24px 26px;
+    border-radius: 22px;
+  }
+
+  #city .stat-card strong {
+    font-size: clamp(30px, 3vw, 42px);
+    line-height: 1;
+  }
+
+  #city .stat-card span {
+    margin-top: 10px;
+    font-size: clamp(14px, 1.2vw, 16px);
+    line-height: 1.25;
+  }
+}
+
+@media (min-width: 1180px) {
+  #city .city-grid {
+    grid-template-columns: 410px minmax(0, 640px);
+    justify-content: center;
+  }
+}
