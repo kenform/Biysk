@@ -1,30 +1,23 @@
 (() => {
   const body = document.body;
-  const header = document.querySelector(".site-header");
-  const burger = document.querySelector(".burger");
-  const closeButton = document.querySelector(".mobile-close");
-  const backdrop = document.querySelector(".menu-backdrop");
-  const menu = document.querySelector(".mobile-menu");
+  const header = document.querySelector(".b-header");
+  const burger = document.querySelector(".b-burger");
+  const closeButton = document.querySelector(".b-mobile-close");
+  const backdrop = document.querySelector(".b-menu-backdrop");
 
-  const setHeaderState = () => {
-    if (!header) return;
-    header.classList.toggle("is-scrolled", window.scrollY > 8);
+  const closeMenu = () => {
+    body.classList.remove("b-menu-open");
+    burger?.setAttribute("aria-expanded", "false");
   };
 
   const openMenu = () => {
-    if (!menu) return;
-    body.classList.add("menu-open", "no-scroll");
+    body.classList.add("b-menu-open");
     burger?.setAttribute("aria-expanded", "true");
-  };
-
-  const closeMenu = () => {
-    body.classList.remove("menu-open", "no-scroll");
-    burger?.setAttribute("aria-expanded", "false");
   };
 
   burger?.addEventListener("click", (event) => {
     event.preventDefault();
-    body.classList.contains("menu-open") ? closeMenu() : openMenu();
+    body.classList.contains("b-menu-open") ? closeMenu() : openMenu();
   });
 
   closeButton?.addEventListener("click", closeMenu);
@@ -51,14 +44,11 @@
       window.setTimeout(() => {
         window.scrollTo({ top, behavior: "smooth" });
         history.pushState(null, "", hash);
-      }, 60);
+      }, 40);
     });
   });
 
   document.querySelectorAll("form").forEach((form) => {
     form.addEventListener("submit", (event) => event.preventDefault());
   });
-
-  setHeaderState();
-  window.addEventListener("scroll", setHeaderState, { passive: true });
 })();

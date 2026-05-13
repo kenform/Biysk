@@ -11,28 +11,45 @@
 </head>
 
 <body>
-  <header class="site-header">
-    <div class="container header-bar">
-      <a class="logo" href="#hero" aria-label="BIYSK">BIYSK</a>
+  <header class="b-header">
+    <div class="b-header__inner">
+      <a class="b-logo" href="#hero" aria-label="BIYSK">BIYSK</a>
 
-      <nav class="desktop-nav" aria-label="Основная навигация">
+      <nav class="b-nav" aria-label="Основная навигация">
         <a href="#about">О городе</a>
         <a href="#features">Преимущества</a>
         <a href="#apartments">Квартиры</a>
         <a href="#contacts">Контакты</a>
       </nav>
 
-      <a class="btn header-cta" href="#contacts">
-        <span class="btn-arrow" aria-hidden="true">→</span>
+      <a class="b-cta" href="#contacts">
+        <span class="b-cta__arrow">→</span>
         <span>Стать бийчанином</span>
       </a>
 
-      <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-controls="mobileMenu" aria-expanded="false">
-        <span></span>
-        <span></span>
-      </button>
+      <button class="b-burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="b-mobile-menu"></button>
     </div>
   </header>
+
+  <div class="b-menu-backdrop" data-menu-close></div>
+
+  <aside class="b-mobile-menu" id="b-mobile-menu" aria-label="Мобильное меню">
+    <div class="b-mobile-menu__top">
+      <a class="b-mobile-logo" href="#hero">BIYSK</a>
+      <button class="b-mobile-close" type="button" aria-label="Закрыть меню">×</button>
+    </div>
+
+    <nav class="b-mobile-links">
+      <a href="#about">О городе</a>
+      <a href="#features">Преимущества</a>
+      <a href="#city">Новый город</a>
+      <a href="#apartments">Квартиры</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+
+    <a class="b-mobile-phone" href="tel:+78005553535">+7 800 555 35 35</a>
+  </aside>
+
 
   <div class="menu-overlay" data-menu-close></div>
 
