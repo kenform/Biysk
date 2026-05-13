@@ -3605,3 +3605,78 @@ section,
     transition-delay: 0.32s;
   }
 }
+
+/* BIYSK MOBILE CTA BLACK FINAL */
+@media (max-width: 767px) {
+  body .b-header .b-header__inner {
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    gap: 14px;
+  }
+
+  body .b-header .b-cta {
+    display: none;
+  }
+
+  body .b-header .b-logo {
+    min-width: 0;
+  }
+
+  body .b-header .b-burger {
+    margin-left: 0;
+  }
+
+  body .b-mobile-menu .b-mobile-links {
+    margin-bottom: 0;
+  }
+
+  body .b-mobile-menu .b-mobile-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: min(292px, 100%);
+    min-height: 54px;
+    margin: 24px auto 0;
+    padding: 0 24px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    background: #050806;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    box-shadow:
+      0 18px 44px rgba(0, 0, 0, 0.34),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    opacity: 1;
+    transform: translateX(0);
+    transition:
+      transform 0.24s ease,
+      background 0.24s ease,
+      box-shadow 0.24s ease;
+  }
+
+  body .b-mobile-menu .b-mobile-action:hover,
+  body .b-mobile-menu .b-mobile-action:focus-visible {
+    color: #ffffff;
+    background: #111111;
+    transform: translateY(-2px);
+    box-shadow:
+      0 22px 54px rgba(0, 0, 0, 0.42),
+      inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  }
+
+  body .b-mobile-menu .b-mobile-action__arrow {
+    color: #ffffff;
+    font-size: 25px;
+    line-height: 1;
+    transform: translateY(-1px);
+  }
+
+  body .b-mobile-menu .b-mobile-phone {
+    margin-top: auto;
+  }
+}
